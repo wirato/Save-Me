@@ -1,0 +1,11 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav [mode]="mobileQueryMax.matches ? 'over' : 'side'" [opened]="mobileQueryMax.matches ? false : true">
+    <app-side-nav></app-side-nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header [media_query]='mobileQueryMax.matches' (toggle)="sidenav.toggle()"></app-header>
+    <div class="content-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

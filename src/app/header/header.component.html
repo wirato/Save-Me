@@ -1,0 +1,21 @@
+<mat-toolbar class="bg-toolbar">
+  <button (click)="onClickNavToggle()"mat-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span *ngIf="!mobileQueryMax">Save me</span>
+  <span class="flex-fill"></span>
+  <button mat-button [matMenuTriggerFor]="menu">
+    <img class="avatar"src="https://www.flaticon.com/svg/static/icons/svg/512/512219.svg" alt="">
+    <span class="ml-3" >Admin Anucha</span>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>settings</mat-icon>
+      <span>Setting</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

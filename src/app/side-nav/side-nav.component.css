@@ -1,0 +1,10 @@
+.saveme-icon{
+    width : 100px; 
+    height : 100px; 
+    margin-left : 50px;
+    margin-top : 10px;
+}
+
+.mat-list-base[dense] .mat-list-item .mat-list-avatar, .mat-list-base[dense] .mat-list-option .mat-list-avatar{
+    border-radius: 0%;
+}

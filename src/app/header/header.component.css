@@ -1,0 +1,24 @@
+.avatar {
+  width: 30px;
+  height: 30px;
+  margin: 1px 0 0px ;
+}
+
+.bg-toolbar{
+    background: linear-gradient(-45deg, #ffffff, #cbf1f5, #a6e3e9, #6ddfe7);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
