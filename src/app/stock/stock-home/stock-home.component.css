@@ -86,3 +86,50 @@ th.mat-cell{
     height: 800px;
     
 }
+
+.btn{
+    text-transform: uppercase;
+    padding:2rem 2rem;
+    border-radius: 1rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1rem;
+    cursor: pointer;
+    opacity: 1;
+    margin-right: 450px;
+    width: 150px;
+    height: 45px;
+    line-height: 0;
+    
+  }
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  }
+  .btn--green {
+    background-color: #55c57a;
+    color: #fff;
+  }
+  
+  label {
+    /* display: inline-block;
+      line-height: 2.2em;
+      padding: 0 0.62em;
+      border: 1px solid #666;
+      font-size: 0.8em;
+      cursor: pointer; */
+      height: 50px;
+      width: 50px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 0.5em;
+    color: white;
+    padding: 5px;
+    background-color: #4caf50;
+    opacity: 0;
+    
+  }
+
+  .text-upload{
+      color: #000;
+  }

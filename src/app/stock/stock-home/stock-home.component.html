@@ -9,7 +9,16 @@
       </button>
     </mat-form-field>
     <!-- wirato -->
-      <input type="file" id="fileUpload" (change)="onFileUpload($event.target.files)"> 
+    <button class="btn btn--green">
+      <span class="text-upload">upload</span>
+      <label for="fileUpload" class="label">
+        <input type="file" id="fileUpload" (change)="onFileUpload($event.target.files)"> 
+      </label>
+        <div *ngIf="uploadPercentage$ | async as percentage">
+          <div>uploading {{percentage}}%</div>
+        </div>
+      <!-- wirato -->
+    </button>
       <div *ngIf="uploadPercentage$ | async as percentage">
         <div>uploading {{percentage}}%</div>
       </div>

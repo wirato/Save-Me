@@ -33,7 +33,6 @@ export class StockHomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.feedData();
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.files$ = this.firestore.collection<File>('files').valueChanges(); // wirato
@@ -58,116 +57,6 @@ export class StockHomeComponent implements OnInit {
   }
   // wirato ##########################################################################
 
-  feedData() {
-    const dummy: Product[] = [
-      {
-        name: 'repudiandae suscipit est.Omnis vel optio',
-        stock: 1,
-        price: 42900,
-        image:
-          'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-202005_GEO_TH?wid=892&hei=820&&qlt=80&.v=1587460269141',
-      },
-      {
-        name: 'Macbook pro',
-        stock: 279,
-        price: 42900,
-        image:
-          'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-202005_GEO_TH?wid=892&hei=820&&qlt=80&.v=1587460269141',
-      },
-      {
-        name: 'Macbook pro',
-        stock: 321,
-        price: 422900,
-        image:
-          'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-202005_GEO_TH?wid=892&hei=820&&qlt=80&.v=1587460269141',
-      },
-      {
-        name: 'Macbook pro',
-        stock: 423,
-        price: 429550,
-        image:
-          'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-202005_GEO_TH?wid=892&hei=820&&qlt=80&.v=1587460269141',
-      },
-      {
-        name: 'Macbook pro',
-        stock: 555,
-        price: 429070,
-        image:
-          'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-202005_GEO_TH?wid=892&hei=820&&qlt=80&.v=1587460269141',
-      },
-      {
-        name: 'repudiandae suscipit est.Omnis vel optio',
-        stock: 1,
-        price: 42900,
-        image:
-          'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-202005_GEO_TH?wid=892&hei=820&&qlt=80&.v=1587460269141',
-      },
-      {
-        name: 'Macbook pro',
-        stock: 279,
-        price: 42900,
-        image:
-          'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-202005_GEO_TH?wid=892&hei=820&&qlt=80&.v=1587460269141',
-      },
-      {
-        name: 'Macbook pro',
-        stock: 321,
-        price: 422900,
-        image:
-          'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-202005_GEO_TH?wid=892&hei=820&&qlt=80&.v=1587460269141',
-      },
-      {
-        name: 'Macbook pro',
-        stock: 423,
-        price: 429550,
-        image:
-          'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-202005_GEO_TH?wid=892&hei=820&&qlt=80&.v=1587460269141',
-      },
-      {
-        name: 'Macbook pro',
-        stock: 555,
-        price: 429070,
-        image:
-          'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-202005_GEO_TH?wid=892&hei=820&&qlt=80&.v=1587460269141',
-      },
-      {
-        name: 'repudiandae suscipit est.Omnis vel optio',
-        stock: 1,
-        price: 42900,
-        image:
-          'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-202005_GEO_TH?wid=892&hei=820&&qlt=80&.v=1587460269141',
-      },
-      {
-        name: 'Macbook pro',
-        stock: 279,
-        price: 42900,
-        image:
-          'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-202005_GEO_TH?wid=892&hei=820&&qlt=80&.v=1587460269141',
-      },
-      {
-        name: 'Macbook pro',
-        stock: 321,
-        price: 422900,
-        image:
-          'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-202005_GEO_TH?wid=892&hei=820&&qlt=80&.v=1587460269141',
-      },
-      {
-        name: 'Macbook pro',
-        stock: 423,
-        price: 429550,
-        image:
-          'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-202005_GEO_TH?wid=892&hei=820&&qlt=80&.v=1587460269141',
-      },
-      {
-        name: 'Macbook pro',
-        stock: 555,
-        price: 429070,
-        image:
-          'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-202005_GEO_TH?wid=892&hei=820&&qlt=80&.v=1587460269141',
-      },
-    ];
-    this.dataSource.data = dummy;
-  }
   search(event: KeyboardEvent) {
     let fliterValue = '';
     if (event) {

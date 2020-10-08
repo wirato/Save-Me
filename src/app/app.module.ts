@@ -23,8 +23,6 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { StockHomeComponent } from './stock/stock-home/stock-home.component';
-import { StockCreateComponent } from './stock/stock-create/stock-create.component';
-import { StockEditComponent } from './stock/stock-edit/stock-edit.component';
 
 import { AngularFireModule } from '@angular/fire'; // wirato
 import { AngularFireStorageModule } from '@angular/fire/storage'; // wirato
@@ -37,8 +35,6 @@ import { environment } from '../environments/environment'; // wirato
     HeaderComponent,
     SideNavComponent,
     StockHomeComponent,
-    StockCreateComponent,
-    StockEditComponent,
   ],
   imports: [
     BrowserModule,
