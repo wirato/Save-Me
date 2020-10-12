@@ -28,6 +28,15 @@ import { AngularFireModule } from '@angular/fire'; // wirato
 import { AngularFireStorageModule } from '@angular/fire/storage'; // wirato
 import { AngularFirestoreModule } from '@angular/fire/firestore'; // wirato
 import { environment } from '../environments/environment'; // wirato
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { AuthService } from "./shared/services/auth.service";
+
+
 
 @NgModule({
   declarations: [
@@ -35,6 +44,11 @@ import { environment } from '../environments/environment'; // wirato
     HeaderComponent,
     SideNavComponent,
     StockHomeComponent,
+    DashboardComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,9 +70,10 @@ import { environment } from '../environments/environment'; // wirato
     MatPaginatorModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), // wirato
     AngularFireStorageModule, // wirato
-    AngularFirestoreModule // wirato
+    AngularFirestoreModule, // wirato
+    AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
