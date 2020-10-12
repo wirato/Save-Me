@@ -10,6 +10,7 @@ import { AngularFireStorage } from '@angular/fire/storage'; // wirato
 import { Observable } from 'rxjs'; // wirato
 import { finalize } from 'rxjs/operators'; // wirato
 import { File } from 'src/app/models/file'; // wirato
+import { Files } from 'src/app/models/files';
 
 
 @Component({
@@ -27,6 +28,8 @@ export class StockHomeComponent implements OnInit {
   uploadPercentage$: Observable<number>; // wirato
   files$: Observable<File[]>; // wirato
 
+  files_: Files[];
+
   constructor(
     private storage: AngularFireStorage,
     private firestore: AngularFirestore,
@@ -36,11 +39,20 @@ export class StockHomeComponent implements OnInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.files$ = this.firestore.collection<File>('files').valueChanges(); // wirato
+
+    this.firestore.collection('files').snapshotChanges().subscribe(data => {
+      this.files_ = data.map(e => {
+        return {
+          name: e.payload.doc.get('name'),
+          url: e.payload.doc.get('url'),
+          id: e.payload.doc.id,
+        } as Files;
+      })
+    });
   }
-  // wirato ##########################################################################
+ 
   onFileUpload(files: FileList) {
-    const file = files[0]; // get single file
-    console.log(files);
+    const file = files[0];
     const path = `files/${file.name}`;
     const ref = this.storage.ref(path);
     const task = this.storage.upload(path, file);
@@ -55,7 +67,11 @@ export class StockHomeComponent implements OnInit {
       })
     ).subscribe();
   }
-  // wirato ##########################################################################
+
+  delete(id: string, name: string) {
+    this.firestore.doc('files/' + id).delete();
+    this.storage.storage.ref('files/'+ name).delete()
+  }
 
   search(event: KeyboardEvent) {
     let fliterValue = '';
