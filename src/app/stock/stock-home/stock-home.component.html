@@ -12,41 +12,51 @@
     <button class="btn btn--green">
       <span class="text-upload">upload</span>
       <label for="fileUpload" class="label">
-        <input type="file" id="fileUpload" (change)="onFileUpload($event.target.files)"> 
+        <input type="file" id="fileUpload" (change)="onFileUpload($event.target.files)">
       </label>
-        <div *ngIf="uploadPercentage$ | async as percentage">
-          <div>uploading {{percentage}}%</div>
-        </div>
-      <!-- wirato -->
-    </button>
       <div *ngIf="uploadPercentage$ | async as percentage">
         <div>uploading {{percentage}}%</div>
       </div>
+      <!-- wirato -->
+    </button>
+    <div *ngIf="uploadPercentage$ | async as percentage">
+      <div>uploading {{percentage}}%</div>
+    </div>
     <!-- wirato -->
   </div>
 
-  <mat-card class="storage-space">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Storage</mat-card-title>
-
-      <!-- wirato -->
-      <div *ngIf="files$ | async as files; else loading">
-        <div *ngFor="let file of files" class="d-flex border px-2 py-1 mb-2 align-items-center">
-          <div class="card">
-            <div>{{file.name}}</div>
-            <div class="ml-auto">
-                <a [href]="file.url" download={{file.name}} target="_blank">download</a>
+  <mat-card class="space-storage">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div *ngIf="files$ | async as files; else loading">
+            <div *ngFor="let file of files">
+              <div class="card card-content">
+                <div class="text-card">{{file.name}}</div>
+                <div class="bt-card">
+                  <a class="bt-download" [href]="file.url" download={{file.name}} target="_blank">download</a>
+                  <a class="bt-delete" [href]="file.url" download={{file.name}} target="_blank">delete</a>
+                </div>
+              </div>
             </div>
           </div>
+          <ng-template #loading>loading...</ng-template>
         </div>
       </div>
-      <ng-template #loading>loading...</ng-template>
-      <!-- wirato -->
-
-    </mat-card-header>
+    </div>
   </mat-card>
 
 
 
-  
+
+  <!-- <div *ngIf="files$ | async as files; else loading">
+    <div *ngFor="let file of files" class="d-flex border px-2 py-1 mb-2 align-items-center">
+      <div class="card">
+        <div>{{file.name}}</div>
+        <div class="ml-auto">
+            <a [href]="file.url" download={{file.name}} target="_blank">download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #loading>loading...</ng-template> -->
