@@ -10,10 +10,13 @@ import { AuthGuard } from "./shared/guard/auth.guard";
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AppComponent } from './app.component';
 import { StorageComponent } from './storage/storage.component';
+import { FilesharedComponent } from './fileshared/fileshared.component';
+
 
 
 const routes: Routes = [
   { path: 'login', redirectTo: '/sign-in', pathMatch: 'full'},
+  { path: 'shared', component:FilesharedComponent,canActivate:[AuthGuard]},
   { path: 'sign-in', component: SignInComponent},
   { path: 'register-user', component: SignUpComponent},
   { path: 'dashboard', component: StockHomeComponent, canActivate: [AuthGuard] },
