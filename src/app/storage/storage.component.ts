@@ -10,6 +10,7 @@ import { Observable } from 'rxjs'; // wirato
 import { finalize } from 'rxjs/operators'; // wirato
 import { File } from 'src/app/models/file'; // wirato
 import { Files } from 'src/app/models/files';
+import { AuthService } from "../shared/services/auth.service";
 
 @Component({
   selector: 'app-storage',
@@ -29,6 +30,7 @@ export class StorageComponent implements OnInit {
   constructor(
     private storage: AngularFireStorage,
     private firestore: AngularFirestore,
+    public authService: AuthService,
   ) {}
 
   ngOnInit(): void {
@@ -46,9 +48,9 @@ export class StorageComponent implements OnInit {
     });
   }
  
-  onFileUpload(files: FileList) {
+  onFileUpload(files: FileList, ID: string) {
     const file = files[0];
-    const path = `files/${file.name}`;
+    const path = `files/${ID}/${file.name}`;
     const ref = this.storage.ref(path);
     const task = this.storage.upload(path, file);
 
@@ -56,7 +58,9 @@ export class StorageComponent implements OnInit {
     task.snapshotChanges().pipe(
       finalize(() => {
         ref.getDownloadURL().toPromise().then(url => {
-          const file_: File = { name: file.name, url }
+          const file_: File = { userID: ID , name: file.name, url }
+          console.log(file)
+          console.log(ID)
           this.firestore.collection('files').add(file_);
         })
       })
