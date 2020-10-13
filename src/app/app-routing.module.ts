@@ -8,10 +8,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { AuthGuard } from "./shared/guard/auth.guard";
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
-  { path: '', component: StockHomeComponent },
   { path: 'login', redirectTo: '/sign-in', pathMatch: 'full'},
   { path: 'sign-in', component: SignInComponent},
   { path: 'register-user', component: SignUpComponent},

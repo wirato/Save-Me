@@ -1,45 +1,12 @@
-<div class="mat-elevation-z8 mt-3 table-responsive">
-  <div class="d-flex justify-content-between align-items-center p-3 search_form">
-    <mat-form-field appearance="outline" class="w-50 ">
-      <mat-label>Search Files</mat-label>
-      <input [(ngModel)]="textSearch" (keyup)="search($event)" matInput placeholder="File Name">
-      <mat-icon matSuffix *ngIf="!textSearch">search</mat-icon>
-      <button (click)="clearSearch()" mat-icon-button matSuffix *ngIf="textSearch">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
-    <!-- wirato -->
-    <button class="btn btn--green">
-      <span class="text-upload">upload</span>
-      <label for="fileUpload" class="label">
-        <input type="file" id="fileUpload" (change)="onFileUpload($event.target.files)">
-      </label>
-      <div *ngIf="uploadPercentage$ | async as percentage">
-        <div>uploading {{percentage}}%</div>
-      </div>
-      <!-- wirato -->
-    </button>
-    <!-- wirato -->
-  </div>
-
-  <mat-card class="space-storage">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <div *ngIf="files$ | async as files; else loading">
-            <div *ngFor="let file of files_">
-              <div class="card card-content">
-                <div class="text-card">{{file.name}}</div>
-                <div class="bt-card">
-                  <a class="bt-download" [href]="file.url" download={{file.name}} target="_blank">download</a>
-                  <a class="bt-delete" (click)="delete(file.id,file.name)" target="_blank">delete</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <ng-template #loading>loading...</ng-template>
-        </div>
-      </div>
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav [mode]="mobileQueryMax.matches ? 'over' : 'side'"
+    [opened]="mobileQueryMax.matches ? false : true">
+    <app-side-nav></app-side-nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header [media_query]='mobileQueryMax.matches' (toggle)="sidenav.toggle()"></app-header>
+    <div class="content-wrapper">
+     <app-storage></app-storage>
     </div>
-  </mat-card>
-  
+  </mat-sidenav-content>
+</mat-sidenav-container>
