@@ -1,27 +1,33 @@
-<div class="displayTable">
-    <div class="displayTableCell">
   
-      <div class="authBlock">
-        <h3>Sign Up</h3>
-  
-        <div class="formGroup">
-          <input type="email" class="formControl" placeholder="Email Address" #userEmail required>
+  <div class="container-fluid">
+    <div class="row no-gutter">
+      <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+      <div class="col-md-8 col-lg-6">
+        <div class="login d-flex align-items-center py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9 col-lg-8 mx-auto">
+                <h1 class="login-heading mb-4">SING UP</h1>
+                <form>
+                  <div class="formGroup">
+                    <input type="email"  class="form-control" placeholder="Email Address" #userEmail required>
+                  </div>
+                  <br>
+                  <div class="formGroup">
+                    <input type="password"  class="form-control" placeholder="Password" #userPwd required>
+                  </div>
+                  <br>
+                  <div class="text-center">
+                    <button class="btn btn-lg btn-danger btn-block btn-login text-uppercase font-weight-bold mb-2" type="button" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">SING UP</button>
+                  </div>
+                  <br>
+                  <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="button" routerLink="/sign-in">Back to Login</button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="formGroup">
-          <input type="password" class="formControl" placeholder="Password" #userPwd required>
-        </div>
-  
-        <div class="formGroup">
-          <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
-        </div>
-  
-        <div class="formGroup">
-          <span class="or"><span class="orInner">Or</span></span>
-        </div>
-  
-      <div class="redirectToLogin">
-        <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
       </div>
     </div>
-  
   </div>
+  
