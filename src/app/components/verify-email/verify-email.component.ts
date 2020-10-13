@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../shared/services/auth.service";
+import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-verify-email',
@@ -9,6 +11,8 @@ import { AuthService } from "../../shared/services/auth.service";
 export class VerifyEmailComponent implements OnInit {
 
   constructor(
+    public location:Location,
+    private route:Router,
     public authService: AuthService
   ) { }
 
@@ -17,4 +21,11 @@ export class VerifyEmailComponent implements OnInit {
   checkemail(){
     window.open("https://mail.google.com/mail/u/0/#inbox")
   }
-}
+
+  // backtologin():void{
+  //   // location.reload(true);
+  //   this.route.navigateByUrl('/sign-in',{skipLocationChange:true}).then(()=>{
+  //     this.route.navigate([decodeURI(this.location.path())]);
+  //   })
+  // };
+};
