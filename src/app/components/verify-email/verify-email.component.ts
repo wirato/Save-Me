@@ -14,5 +14,7 @@ export class VerifyEmailComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  checkemail(){
+    window.open("https://mail.google.com/mail/u/0/#inbox")
+  }
 }
