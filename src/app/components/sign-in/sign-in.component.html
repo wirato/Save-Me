@@ -1,42 +1,45 @@
-<div class="displayTable">
-    <div class="displayTableCell">
-  
-      <div class="authBlock">
-        <h3>Sign In</h3>
-        <div class="formGroup">
-          <input type="text" class="formControl" placeholder="Username" #userName required>
-        </div>
-  
-        <div class="formGroup">
-          <input type="password" class="formControl" placeholder="Password" #userPassword required>
-        </div>
-  
-        <!-- Calling SignIn Api from AuthService -->
-        <div class="formGroup">
-          <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
-        </div>
-  
-        <div class="formGroup">
-          <span class="or"><span class="orInner">Or</span></span>
-        </div>
-  
-        <!-- Calling GoogleAuth Api from AuthService -->
-        <div class="formGroup">
-          <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
-            <i class="fab fa-google-plus-g"></i>
-            Log in with Google
-          </button>
-        </div>
-  
-        <div class="forgotPassword">
-          <span routerLink="/forgot-password">Forgot Password?</span>
+
+  <div class="container-fluid">
+    <div class="row no-gutter">
+      <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+      <div class="col-md-8 col-lg-6">
+        <div class="login d-flex align-items-center py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9 col-lg-8 mx-auto">
+                <h1 class="login-heading mb-4">SING IN</h1>
+                <form>
+                  <div class="formGroup">
+                    <input type="email"  class="form-control" placeholder="Username" #userName required>
+                  </div>
+                  <br>
+                  <div class="formGroup">
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" #userPassword required>
+                  </div>
+                  <br>
+                  <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Remember password</label>
+                  </div>
+                  <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="button" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">Log in</button>
+                  <br>
+                  <div class="text-center">
+                    <button class="btn btn-lg btn-danger btn-block btn-login text-uppercase font-weight-bold mb-2" type="button" (click)="authService.GoogleAuth()">Log in with Google</button>
+                  </div>
+                  <div class="text-center">
+                    <a class="big" routerLink="/forgot-password">Forgot password?</a>
+                    <br>
+                  </div>
+                  <br>
+                  <div class="text-center">
+                    <a class="big" routerLink="/register-user">Sign Up</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-  
-      <div class="redirectToLogin">
-        <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
-      </div>
-  
     </div>
   </div>
   
