@@ -9,9 +9,9 @@
         </button>
       </mat-form-field>
 
-      <button class="btn btn--green">
+      <button class="btn btn--green" *ngIf="authService.userData as user">
         <span class="text-upload">upload</span>
-        <label for="fileUpload" class="label" mat-button *ngIf="authService.userData as user">
+        <label for="fileUpload" class="label" >
           <input type="file" id="fileUpload" (change)="onFileUpload($event.target.files,user.uid)">
         </label>
         <div *ngIf="uploadPercentage$ | async as percentage">
@@ -20,19 +20,21 @@
       </button>
     </div>
   
-    <mat-card class="space-storage">
+    <mat-card class="space-storage" *ngIf="authService.userData as user">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
             <div *ngIf="files$ | async as files; else loading">
               <div *ngFor="let file of files_">
-                <div class="card card-content">
-                  <div class="text-card">{{file.name}}</div>
-                  <div class="bt-card">
-                    <a class="bt-download" [href]="file.url" download={{file.name}} target="_blank">download</a>
-                    <a class="bt-delete" (click)="delete(file.id,file.name)" target="_blank">delete</a>
+                  <div *ngIf="user.uid == file.userID">
+                    <div class="card card-content">
+                      <div class="text-card">{{file.name}}</div>
+                      <div class="bt-card">
+                        <a class="bt-download" [href]="file.url" download={{file.name}} target="_blank">download</a>
+                        <a class="bt-delete" (click)="delete(file.id,file.name,user.uid)" target="_blank">delete</a>
+                      </div>
+                    </div>
                   </div>
-                </div>
               </div>
             </div>
             <ng-template #loading>loading...</ng-template>

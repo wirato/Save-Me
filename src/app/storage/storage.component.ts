@@ -35,12 +35,14 @@ export class StorageComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.files$ = this.firestore.collection<File>('files').valueChanges(); // wirato
+    this.files$ = this.firestore.collection<File>('files').valueChanges(); // wirato;
 
     this.firestore.collection('files').snapshotChanges().subscribe(data => {
       this.files_ = data.map(e => {
+
         return {
           name: e.payload.doc.get('name'),
+          userID: e.payload.doc.get('userID'),
           url: e.payload.doc.get('url'),
           id: e.payload.doc.id,
         } as Files;
@@ -67,9 +69,9 @@ export class StorageComponent implements OnInit {
     ).subscribe();
   }
 
-  delete(id: string, name: string) {
-    this.firestore.doc('files/' + id).delete();
-    this.storage.storage.ref('files/'+ name).delete()
+  delete(id: string, name: string, userid: string) {
+    this.firestore.doc('files/'+ id).delete();
+    this.storage.storage.ref('files/'+userid+'/'+ name).delete()
   }
 
   search(event: KeyboardEvent) {
