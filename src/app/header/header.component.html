@@ -10,11 +10,11 @@
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item>
-      <mat-icon>settings</mat-icon>
+      <mat-icon routerLink="/setting">settings</mat-icon>
       <span routerLink="/setting">Setting</span>
     </button>
     <button mat-menu-item>
-      <mat-icon>exit_to_app</mat-icon>
+      <mat-icon (click)="authService.SignOut()">exit_to_app</mat-icon>
       <span (click)="authService.SignOut()">Logout</span>
     </button>
   </mat-menu>

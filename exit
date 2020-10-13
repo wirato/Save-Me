@@ -1,0 +1,96 @@
+[33mcommit 98d7e8a22fe72fd534ba3062a58ab3ce036ac2af[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: AnuchaSu <art0913452643@gmail.com>
+Date:   Wed Oct 14 01:59:06 2020 +0700
+
+    fix btn-backtologin
+
+[33mcommit b709efee7d31bf9b052fe476d67b1f2a77b2400c[m
+Author: AnuchaSu <art0913452643@gmail.com>
+Date:   Tue Oct 13 23:57:12 2020 +0700
+
+    sharedpage
+
+[33mcommit cf2c731043030ab50cac28f7f2b6c63227dcb9eb[m
+Author: Weerachai <weerachai.ch.61@ubu.ac.th>
+Date:   Tue Oct 13 22:49:54 2020 +0700
+
+    uid
+
+[33mcommit 496cdeeff7b4c1d27cdcba2b7c01a19a8b75e36e[m
+Author: Weerachai <weerachai.ch.61@ubu.ac.th>
+Date:   Tue Oct 13 22:44:20 2020 +0700
+
+    uid
+
+[33mcommit 0dee367e2c0a3cec4af998fa6cbca6a0339c5b71[m
+Author: Weerachai <weerachai.ch.61@ubu.ac.th>
+Date:   Tue Oct 13 21:40:47 2020 +0700
+
+    userID
+
+[33mcommit 577b69bbf8b247e38a8621f192ccdfdc8a8e1d46[m
+Author: macpakorn <pakorn.sa.61@ubu.ac.th>
+Date:   Tue Oct 13 20:55:53 2020 +0700
+
+    fixed
+
+[33mcommit 8506bd90c91bc5e6178db87b3823a1da2a4a0a83[m
+Author: chaiprasit <chaiprasit.kh.61@ubu.ac.th>
+Date:   Tue Oct 13 19:41:24 2020 +0700
+
+    uipage
+
+[33mcommit 171e8906f20b7ddfaaa4cbdde28aa3d6f4d4ec8e[m
+Merge: 3386691 1e8af0e
+Author: Chaiprasit Khamsi <chaiprasit.kh.61@ubu.ac.th>
+Date:   Tue Oct 13 14:39:16 2020 +0700
+
+    Merge branch 'master' of https://github.com/wirato/Save-Me
+
+[33mcommit 3386691a5b81b9e3d4d6b715d84068ceef34121a[m
+Author: Chaiprasit Khamsi <chaiprasit.kh.61@ubu.ac.th>
+Date:   Tue Oct 13 14:23:53 2020 +0700
+
+    loginpage
+
+[33mcommit 1e8af0ea85366896add32bb66662d0aecffd0619[m
+Author: AnuchaSu <art0913452643@gmail.com>
+Date:   Tue Oct 13 13:56:18 2020 +0700
+
+    sepatate login or dashboard
+
+[33mcommit 8a87b45b5f08ffa51fdc211edab87a438621edcd[m
+Author: AnuchaSu <art0913452643@gmail.com>
+Date:   Tue Oct 13 12:12:10 2020 +0700
+
+    fix loginpage
+
+[33mcommit d57119ecedd453856241fba231554e9ff0964318[m
+Author: macpakorn <pakorn.sa.61@ubu.ac.th>
+Date:   Tue Oct 13 00:46:25 2020 +0700
+
+    login
+
+[33mcommit aca48d47b1388f23fc8f401d85e16217f0151a37[m
+Author: Weerachai <weerachai.ch.61@ubu.ac.th>
+Date:   Mon Oct 12 23:14:24 2020 +0700
+
+    delete
+
+[33mcommit 7d7c06e9d876d8852f59de41e5fe723706af27b3[m
+Author: AnuchaSu <art0913452643@gmail.com>
+Date:   Mon Oct 12 21:19:06 2020 +0700
+
+    fix card-upload
+
+[33mcommit ced6a86ce9a0b83900465582141a0638b15c3cba[m
+Author: AnuchaSu <art0913452643@gmail.com>
+Date:   Fri Oct 9 02:11:36 2020 +0700
+
+    button-upload
+
+[33mcommit f4b86b2e5ce563bdc23468fbe5c6a230523a0498[m
+Author: Weerachai <weerachai.ch.61@ubu.ac.th>
+Date:   Thu Oct 8 21:10:49 2020 +0700
+
+    wirato
