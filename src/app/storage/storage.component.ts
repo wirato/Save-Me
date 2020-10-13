@@ -61,8 +61,6 @@ export class StorageComponent implements OnInit {
       finalize(() => {
         ref.getDownloadURL().toPromise().then(url => {
           const file_: File = { userID: ID , name: file.name, url }
-          console.log(file)
-          console.log(ID)
           this.firestore.collection('files').add(file_);
         })
       })
