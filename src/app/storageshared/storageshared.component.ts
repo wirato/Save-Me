@@ -33,6 +33,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   `]
 })
 export class StoragesharedComponent implements OnInit {
+
+  t: boolean;
   textSearch: string;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -99,10 +101,20 @@ export class StoragesharedComponent implements OnInit {
   }
 
   update(id: string,email: string, shared: string[]){
-    console.log(shared)
-    shared.push(email);
-    console.log(shared)
-    this.firestore.collection("files").doc(id).update({ shared: shared});
+    this.t = true;
+    for (let e of shared) {
+      if (e == email) {
+        alert("คุณได้แชร์ไฟล์ให้กับ "+email+" แล้ว");
+        this.t = false;
+        break;
+      }
+    }
+    if(this.t == true){
+      console.log(shared)
+      shared.push(email);
+      console.log(shared)
+      this.firestore.collection("files").doc(id).update({ shared: shared});
+    }
   }
 
   search(event: KeyboardEvent) {

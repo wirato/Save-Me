@@ -37,6 +37,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class StorageComponent implements OnInit {
 
   textSearch: string;
+  t: boolean;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
@@ -62,9 +63,9 @@ export class StorageComponent implements OnInit {
   openDelete(contentDelete) {
     this.modalService.open(contentDelete, { centered: true });
   }
-
+  
   ngOnInit(): void {
-
+    console.log(this.storage.storage.ref('files/Wtfu4SsSGeVgp4grtS8B14WZvLg1/save2 (1).mkv'));
     this.files$ = this.firestore.collection<File>('files').valueChanges(); // wirato;
 
     this.firestore.collection('files').snapshotChanges().subscribe(data => {
@@ -86,7 +87,7 @@ export class StorageComponent implements OnInit {
     const path = `files/${ID}/${file.name}`;
     const ref = this.storage.ref(path);
     const task = this.storage.upload(path, file);
-
+    
     this.uploadPercentage$ = task.percentageChanges();
     task.snapshotChanges().pipe(
       finalize(() => {
@@ -104,10 +105,20 @@ export class StorageComponent implements OnInit {
   }
 
   update(id: string,email: string, shared: string[]){
-    console.log(shared)
-    shared.push(email);
-    console.log(shared)
-    this.firestore.collection("files").doc(id).update({ shared: shared});
+    this.t = true;
+    for (let e of shared) {
+      if (e == email) {
+        alert("คุณได้แชร์ไฟล์ให้กับ "+email+" แล้ว");
+        this.t = false;
+        break;
+      }
+    }
+    if(this.t == true){
+      console.log(shared)
+      shared.push(email);
+      console.log(shared)
+      this.firestore.collection("files").doc(id).update({ shared: shared});
+    }
   }
 
   search(event: KeyboardEvent) {
