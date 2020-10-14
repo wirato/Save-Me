@@ -5,7 +5,7 @@
   <span *ngIf="!mobileQueryMax">Save me</span>
   <span class="flex-fill"></span>
   <button mat-button [matMenuTriggerFor]="menu" *ngIf="authService.userData as user">
-    <img class="avatar"src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">
+    <img class="avatar"src="{{(user.photoURL) ? user.photoURL : 'https://www.flaticon.com/svg/static/icons/svg/14/14660.svg'}}" alt="{{user.displayName}}">
     <span class="ml-3">{{user.email}}</span>
   </button>
   <mat-menu #menu="matMenu">
