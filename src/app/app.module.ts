@@ -39,7 +39,7 @@ import { StorageComponent } from './storage/storage.component';
 import { FilesharedComponent } from './fileshared/fileshared.component';
 import { StoragesharedComponent } from './storageshared/storageshared.component';
 
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -78,6 +78,7 @@ import { StoragesharedComponent } from './storageshared/storageshared.component'
     AngularFireStorageModule, // wirato
     AngularFirestoreModule, // wirato
     AngularFireAuthModule,
+    NgbModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

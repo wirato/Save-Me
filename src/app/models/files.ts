@@ -3,5 +3,6 @@ export class Files {
     userID: string;
     name: string;
     url: string;
+    shared: string[];
 }
 

@@ -12,7 +12,7 @@
       <button class="btn btn--green" *ngIf="authService.userData as user">
         <span class="text-upload">upload</span>
         <label for="fileUpload" class="label" >
-          <input type="file" id="fileUpload" (change)="onFileUpload($event.target.files,user.uid)">
+          <input type="file" id="fileUpload" (change)="onFileUpload($event.target.files,user.uid,user.email)">
         </label>
         <div *ngIf="uploadPercentage$ | async as percentage">
           <div>uploading {{percentage}}%</div>
@@ -31,7 +31,48 @@
                       <div class="text-card">{{file.name}}</div>
                       <div class="bt-card">
                         <a class="bt-download" [href]="file.url" download={{file.name}} target="_blank">download</a>
-                        <a class="bt-delete" (click)="delete(file.id,file.name,user.uid)" target="_blank">delete</a>
+
+                        <ng-template #contentDelete let-modal>
+                          <div class="modal-header">
+                            <h4 class="modal-title">Delete:</h4>
+                            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                              <div class="">
+                                <h4 class="modal-title">คุณต้องการที่จะลบ {{file.name}} หรือไม่</h4>
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="" data-dismiss="modal" (click)="modal.close('Close click')">No</button>
+                            <button type="button" class="" (click)="delete(file.id,file.name,user.uid)" (click)="modal.close('Close click')">Yes</button>
+                          </div>
+                        </ng-template>
+                        <a class="bt-delete" (click)="openDelete(contentDelete)" target="_blank">delete</a>
+                        
+                        <ng-template #content let-modal>
+                          <div class="modal-header">
+                            <h4 class="modal-title">Email:</h4>
+                            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <form>
+                          <div class="modal-body">
+                              <div class="">
+                                <input type="text" class="form-control" name="email" #email required>
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="" data-dismiss="modal" (click)="modal.close('Close click')">Close</button>
+                            <button type="button" class="" (click)="update(file.id, email.value, file.shared)" (click)="modal.close('Close click')">Send</button>
+                          </div>
+                        </form>
+                        </ng-template>
+
+                        <a class="bt-download" (click)="openVerticallyCentered(content)">shared</a>
+                    
                       </div>
                     </div>
                   </div>
