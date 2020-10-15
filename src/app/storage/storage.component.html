@@ -1,22 +1,18 @@
 <div class="mat-elevation-z8 mt-3 table-responsive">
     <div class="d-flex justify-content-between align-items-center p-3 search_form">
       <mat-form-field appearance="outline" class="w-50 ">
-        <mat-label>Search Files</mat-label>
-        <input [(ngModel)]="textSearch" (keyup)="search($event)" matInput placeholder="File Name">
+        <input [(ngModel)]="textSearch" (keyup)="search($event)" matInput>
         <mat-icon matSuffix *ngIf="!textSearch">search</mat-icon>
         <button (click)="clearSearch()" mat-icon-button matSuffix *ngIf="textSearch">
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
 
-      <button class="btn btn--green" *ngIf="authService.userData as user">
+      <button class="btn-custom btn--green" *ngIf="authService.userData as user">
         <span class="text-upload">upload</span>
         <label for="fileUpload" class="label" >
           <input type="file" id="fileUpload" (change)="onFileUpload($event.target.files,user.uid,user.email)">
         </label>
-        <div *ngIf="uploadPercentage$ | async as percentage">
-          <div>uploading {{percentage}}%</div>
-        </div>
       </button>
     </div>
   
@@ -27,11 +23,17 @@
             <div *ngIf="files$ | async as files; else loading">
               <div *ngFor="let file of files_">
                   <div *ngIf="user.uid == file.userID">
-                    <div class="card card-content">
-                      <div class="text-card">{{file.name}}</div>
                       <div class="bt-card">
-                        <a class="bt-download" [href]="file.url" download={{file.name}} target="_blank">download</a>
-
+                        <div class="card" style="width: 18rem;">
+                          <img class="card-img-top" src="../../assets/image/document.png" alt="Card image cap">
+                          <div class="card-body">
+                            <div class="text-card">{{file.name}}</div>
+                          </div>
+                          <div class="card-body text-center">
+                            <a class="card-link bt-download" [href]="file.url" download={{file.name}} target="_blank">download</a>
+                            <a class="card-link bt-delete" (click)="openDelete(contentDelete)" target="_blank">delete</a>
+                            <a class="card-link bt-shared" (click)="openVerticallyCentered(content)">shared</a>
+                          </div>
                         <ng-template #contentDelete let-modal>
                           <div class="modal-header">
                             <h4 class="modal-title">Delete:</h4>
@@ -49,7 +51,7 @@
                             <button type="button" class="" (click)="delete(file.id,file.name,user.uid)" (click)="modal.close('Close click')">Yes</button>
                           </div>
                         </ng-template>
-                        <a class="bt-delete" (click)="openDelete(contentDelete)" target="_blank">delete</a>
+                       
                         
                         <ng-template #content let-modal>
                           <div class="modal-header">
@@ -71,7 +73,7 @@
                         </form>
                         </ng-template>
 
-                        <a class="bt-download" (click)="openVerticallyCentered(content)">shared</a>
+                        
                     
                       </div>
                     </div>

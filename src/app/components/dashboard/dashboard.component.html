@@ -9,16 +9,15 @@
         </div>
         <!-- Show user data when logged in -->
         <div class="row" *ngIf="authService.userData as user">
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div>&nbsp;</div>
           </div>
-          <div class="col-md-9">
+          <div class="col-md-8">
             <div class="media">
-              <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : 'https://www.flaticon.com/svg/static/icons/svg/14/14660.svg'}}"
+              <img class="avatar align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : 'https://www.flaticon.com/svg/static/icons/svg/14/14660.svg'}}"
                 alt="{{user.displayName}}">
               <div class="media-body">
-                <h1>Welcome: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-                <p>User ID: <strong>{{user.uid}}</strong></p>
+                <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
                 <p>Email: <strong>{{user.email}}</strong></p>
                 <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
                 <button routerLink="/dashboard" class="btn btn-primary">Prevoius to dashboard</button>

@@ -40,6 +40,8 @@ import { FilesharedComponent } from './fileshared/fileshared.component';
 import { StoragesharedComponent } from './storageshared/storageshared.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AutoFocusDirective } from './side-nav/auto-focus.directive';
+
 
 @NgModule({
   declarations: [
@@ -55,6 +57,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     StorageComponent,
     FilesharedComponent,
     StoragesharedComponent,
+    AutoFocusDirective,
   ],
   imports: [
     BrowserModule,
