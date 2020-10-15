@@ -1,6 +1,4 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { Event } from '@angular/router';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 
@@ -108,16 +106,15 @@ export class StorageComponent implements OnInit {
     this.t = true;
     for (let e of shared) {
       if (e == email) {
-        alert("คุณได้แชร์ไฟล์ให้กับ "+email+" แล้ว");
+        alert("You have already shared with "+email);
         this.t = false;
         break;
       }
     }
     if(this.t == true){
-      console.log(shared)
       shared.push(email);
-      console.log(shared)
       this.firestore.collection("files").doc(id).update({ shared: shared});
+      alert("Shared was successful");
     }
   }
 
