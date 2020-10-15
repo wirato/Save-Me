@@ -1,8 +1,28 @@
 .media-body{
-    margin-top: 110px;
+    margin-top: 130px;
 }
 
 .avatar{
+    margin-top: 15px;
     height: 25rem;
     width: 25rem;
+}
+
+.user-profile{
+    margin: 30px 30px 20px 20px;
+    font-size: 50px;
+}
+
+.border-bottom{
+    background-color: aqua;
+}
+
+body{
+    background-image: url("../../../assets/image/colorful.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card{
+    border-radius: 20px;
 }

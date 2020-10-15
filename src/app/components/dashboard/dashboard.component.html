@@ -1,30 +1,38 @@
-<!-- Sidebar navigation -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="col-md-12 ">
+    <div>
 
-    <!-- Main content -->
-    <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
-      <div class="inner-adjust">
-
-        <div class="pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2 text-center"><strong>User Profile</strong></h1>
+      <div class="pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2 text-center user-profile"><strong>User Profile</strong></h1>
+      </div>
+      
+      <div class="row" *ngIf="authService.userData as user">
+        <div class="col-md-4">
+          <div>&nbsp;</div>
         </div>
-        <!-- Show user data when logged in -->
-        <div class="row" *ngIf="authService.userData as user">
-          <div class="col-md-4">
-            <div>&nbsp;</div>
-          </div>
-          <div class="col-md-8">
-            <div class="media">
-              <img class="avatar align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : 'https://www.flaticon.com/svg/static/icons/svg/14/14660.svg'}}"
-                alt="{{user.displayName}}">
-              <div class="media-body">
-                <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-                <p>Email: <strong>{{user.email}}</strong></p>
-                <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
-                <button routerLink="/dashboard" class="btn btn-primary">Prevoius to dashboard</button>
-              </div>
+        <div class="col-md-5 card">
+          <div class="media">
+            <img class="avatar align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : 'https://www.flaticon.com/svg/static/icons/svg/14/14660.svg'}}"
+              alt="{{user.displayName}}">
+            <div class="media-body">
+              <p>Email: <strong>{{user.email}}</strong></p>
+              <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+              <button routerLink="/dashboard" class="btn btn-primary">Prevoius to dashboard</button>
             </div>
           </div>
+        </div> 
+        <div class="col-md-3">
+          <div>&nbsp;</div>
         </div>
       </div>
-    </main>
-
+    </div>
+  </div>
+</body>
+</html>

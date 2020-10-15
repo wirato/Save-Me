@@ -2,7 +2,7 @@
     width : 100px; 
     height : 100px; 
     margin-left : 50px;
-    margin-top : 10px;
+    margin-top : 50px;
 }
 
 .mat-list-base[dense] .mat-list-avatar, .mat-list-base[dense] .mat-list-option .mat-list-avatar{
@@ -28,5 +28,9 @@
 .mat-list-avatar{
     margin-left: 10px;
     width: 180px;
-    height: 200px;
+    height: 180px;
+}
+
+.mat-list-option{
+    background: aqua;
 }

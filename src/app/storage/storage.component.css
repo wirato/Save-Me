@@ -97,8 +97,10 @@ label {
 
 .space-storage {
   height: 700px;
-  background-image: url('../../assets/image/colorful.png');
-  background-size: cover;
+  background-image: url('../../assets/image/file-upload.png');
+  background-repeat: no-repeat;
+  background-size: 500px 500px;
+  background-position: center;
 }
 
 .card{
