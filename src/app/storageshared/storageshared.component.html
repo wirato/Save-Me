@@ -25,9 +25,9 @@
                         <div class="text-card">{{file.name}}</div>
                       </div>
                       <div class="card-body text-center">
-                        <a class="card-link bt-download" [href]="file.url" download={{file.name}} target="_blank">download</a>
-                        <a class="card-link bt-delete" (click)="openDelete(contentDelete)" target="_blank">delete</a>
-                        <a class="card-link bt-shared" (click)="openVerticallyCentered(content)">shared</a>
+                        <button class="btn btn-primary">
+                          <a class="card-link bt-download" [href]="file.url" download={{file.name}} target="_blank">download</a>
+                        </button>
                       </div>
 
                       <ng-template #contentDelete let-modal>

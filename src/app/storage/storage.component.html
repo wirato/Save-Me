@@ -36,11 +36,8 @@
                           <div class="card-body">
                             <div class="text-card">{{file.name}}</div>
                           </div>
-                          <div class="card-body text-center">
-                            <a class="card-link bt-download" [href]="file.url" download={{file.name}} target="_blank">download</a>
-                            <a class="card-link bt-delete" (click)="openDelete(contentDelete)" target="_blank">delete</a>
-                            <a class="card-link bt-shared" (click)="openVerticallyCentered(content)">shared</a>
-                          </div>
+                          <div class="card-body">
+                            
                         <ng-template #contentDelete let-modal>
                           <div class="modal-header">
                             <h4 class="modal-title">Delete:</h4>
@@ -50,7 +47,7 @@
                           </div>
                           <div class="modal-body">
                               <div class="">
-                                <h4 class="modal-title font-weight-bold">Do you want to delete a file {{file.name}}?</h4>
+                                <h4 class="modal-title">Do you want to delete a file <strong>{{file.name}}?</strong> </h4>
                               </div>
                           </div>
                           <div class="modal-footer">
@@ -94,3 +91,4 @@
       </div>
     </mat-card>
 </div>
+

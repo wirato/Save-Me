@@ -82,6 +82,7 @@ label {
 }
 
 .bt-download {
+  color: #f7f7f7;
   cursor: pointer;
   text-decoration: none !important;
   margin-left: 10px;
@@ -99,8 +100,11 @@ label {
 
 .space-storage {
   height: 700px;
+  background-image: url('../../assets/image/Share.png');
+  background-repeat: no-repeat;
+  background-size: 500px 500px;
+  background-position: center;
 }
-
 .card{
   float: left;
   margin: 20px;
@@ -122,4 +126,12 @@ label {
   margin-bottom: 20px;
   width: 100px;
   height: 100px;
+}
+
+a{
+  margin-right: 8px;
+}
+
+.bt-download:hover{
+  color: #fff;
 }
