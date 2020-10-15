@@ -24,7 +24,7 @@
               <div *ngFor="let file of files_ | filter:textSearch">
                   <div *ngIf="user.uid == file.userID">
                       <div class="bt-card">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card" style="width: 15rem;">
                           <img class="card-img-top" src="../../assets/image/document.png" alt="Card image cap">
                           <div class="card-body">
                             <div class="text-card">{{file.name}}</div>
@@ -43,12 +43,12 @@
                           </div>
                           <div class="modal-body">
                               <div class="">
-                                <h4 class="modal-title">คุณต้องการที่จะลบ {{file.name}} หรือไม่</h4>
+                                <h4 class="modal-title font-weight-bold">คุณต้องการที่จะลบ {{file.name}} หรือไม่</h4>
                               </div>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="" data-dismiss="modal" (click)="modal.close('Close click')">No</button>
-                            <button type="button" class="" (click)="delete(file.id,file.name,user.uid)" (click)="modal.close('Close click')">Yes</button>
+                            <button type="button" class="btn" style="background-color: #1D2D60; color: white;" data-dismiss="modal" (click)="modal.close('Close click')">No</button>
+                            <button type="button" class="btn" style="background-color: #F65E5D; color: white;" (click)="delete(file.id,file.name,user.uid)" (click)="modal.close('Close click')">Yes</button>
                           </div>
                         </ng-template>
                        
@@ -67,8 +67,8 @@
                               </div>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="" data-dismiss="modal" (click)="modal.close('Close click')">Close</button>
-                            <button type="button" class="" (click)="update(file.id, email.value, file.shared)" (click)="modal.close('Close click')">Send</button>
+                            <button type="button" class="btn" style="background-color: #F65E5D; color: white;" data-dismiss="modal" (click)="modal.close('Close click')">Close</button>
+                            <button type="button" class="btn" style="background-color:#056CF2; color: white;" (click)="update(file.id, email.value, file.shared)" (click)="modal.close('Close click')">Send</button>
                           </div>
                         </form>
                         </ng-template>
