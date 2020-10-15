@@ -1,7 +1,11 @@
 <div class="mat-elevation-z8 mt-3 table-responsive">
     <div class="d-flex justify-content-between align-items-center p-3 search_form">
       <mat-form-field appearance="outline" class="w-50 ">
+<<<<<<< HEAD
         <input [(ngModel)]="textSearch" (keyup)="search($event)" matInput>
+=======
+        <input [(ngModel)]="textSearch" (keyup)="search($event)" matInput placeholder="File Name">
+>>>>>>> a834af29b06fbdde695eb091f53b68525ad67a89
         <mat-icon matSuffix *ngIf="!textSearch">search</mat-icon>
         <button (click)="clearSearch()" mat-icon-button matSuffix *ngIf="textSearch">
           <mat-icon>close</mat-icon>
@@ -21,7 +25,7 @@
         <div class="row">
           <div class="col-md-12">
             <div *ngIf="files$ | async as files; else loading">
-              <div *ngFor="let file of files_">
+              <div *ngFor="let file of files_ | filter:textSearch">
                   <div *ngIf="user.uid == file.userID">
                       <div class="bt-card">
                         <div class="card" style="width: 18rem;">
