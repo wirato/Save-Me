@@ -16,3 +16,17 @@
 .mat-list-item:focus{
     background-color: #D8D4D4
 }
+
+.footer-mat-list{
+    margin-top: 200px;
+}
+
+.mat-divider.test{
+    padding: 50px;
+}
+
+.mat-list-avatar{
+    margin-left: 10px;
+    width: 180px;
+    height: 200px;
+}

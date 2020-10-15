@@ -97,6 +97,8 @@ label {
 
 .space-storage {
   height: 700px;
+  background-image: url('../../assets/image/colorful.png');
+  background-size: cover;
 }
 
 .card{
@@ -128,3 +130,4 @@ input{
   cursor: pointer;
   margin-bottom: 20px;
 }
+
