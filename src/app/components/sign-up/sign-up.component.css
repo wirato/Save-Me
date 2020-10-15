@@ -9,7 +9,7 @@
   }
   
   .bg-image {
-    background-image: url(https://cdn.pixabay.com/photo/2019/06/19/07/13/email-4284157_1280.png);
+    background-image: url("../image/sign-up.png");
     background-size: cover;
     background-position: center;
   }
