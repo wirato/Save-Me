@@ -9,9 +9,11 @@
   }
   
   .bg-image {
-    background-image: url("../../../assets/image/sign-in.png");
+    background-image: url("../../../assets/image/storage33.png");
     background-size: cover;
     background-position: center;
+
+
   }
   
   .login-heading {
