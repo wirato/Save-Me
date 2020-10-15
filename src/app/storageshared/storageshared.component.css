@@ -46,27 +46,20 @@
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 .btn--green {
-  background-color:#1D2D60;
+  background-color:#056CF2;
   color: #fff;
 }
 
 label {
-  /* display: inline-block;
-        line-height: 2.2em;
-        padding: 0 0.62em;
-        border: 1px solid #666;
-        font-size: 0.8em;
-        cursor: pointer; */
-  height: 20px;
-  width: 100px;
-  position: relative;
-  cursor: pointer;
-  border-radius: 0.5em;
-  color: white;
-  background-color: #4caf50;
-  opacity: 0;
-  padding: 0 0.62em;
   display: inline-block;
+  background-color: #056CF2;
+  color: white;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
+
 }
 
 .text-upload {

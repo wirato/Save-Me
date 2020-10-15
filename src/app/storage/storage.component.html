@@ -8,12 +8,19 @@
         </button>
       </mat-form-field>
 
-      <button class="btn-custom btn--green" *ngIf="authService.userData as user">
-        <span class="text-upload">upload</span>
-        <label for="fileUpload" class="label" >
-          <input type="file" id="fileUpload" (change)="onFileUpload($event.target.files,user.uid,user.email)">
-        </label>
-      </button>
+      <!-- <div *ngIf="authService.userData as user">
+        <input type="file" id="fileUpload" (change)="onFileUpload($event.target.files,user.uid,user.email)">
+        <label for="upload">Choose file</label>
+      </div> -->
+      <div *ngIf="authService.userData as user">
+        <input type="file" id="upload" (change)="onFileUpload($event.target.files,user.uid,user.email)" hidden/>
+        <label for="upload">Upload file</label>
+      </div>
+        <!-- <label for="fileUpload" class="custom-button" *ngIf="authService.userData as user">
+          Upload
+          <input type="file" id="" (change)="onFileUpload($event.target.files,user.uid,user.email)">
+        </label> -->
+      
     </div>
   
     <mat-card class="space-storage" *ngIf="authService.userData as user">

@@ -8,12 +8,6 @@
       </button>
     </mat-form-field>
 
-    <button class="btn-custom btn--green" type="button" *ngIf="authService.userData as user">
-      <span  class="text-upload">upload</span>
-      <label for="fileUpload" class="label" >
-        <input type="file" id="fileUpload" (change)="onFileUpload($event.target.files,user.uid,user.email)">
-      </label>
-    </button>
   </div>
 
   <mat-card class="space-storage" *ngIf="authService.userData as user">
@@ -49,8 +43,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="" data-dismiss="modal" (click)="modal.close('Close click')">No</button>
-                          <button type="button" class="" (click)="delete(file.id,file.name,user.uid)" (click)="modal.close('Close click')">Yes</button>
+                          <button type="button" class="btn" style="background-color: #1D2D60; color: white;" data-dismiss="modal" (click)="modal.close('Close click')">No</button>
+                          <button type="button" class="btn" style="background-color: #F65E5D; color: white;" (click)="delete(file.id,file.name,user.uid)" (click)="modal.close('Close click')">Yes</button>
                         </div>
                       </ng-template>
                       
@@ -68,8 +62,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="" data-dismiss="modal" (click)="modal.close('Close click')">Close</button>
-                          <button type="button" class="" (click)="update(file.id, email.value, file.shared)" (click)="modal.close('Close click')">Send</button>
+                            <button type="button" class="btn" style="background-color: #F65E5D; color: white;" data-dismiss="modal" (click)="modal.close('Close click')">Close</button>
+                            <button type="button" class="btn" style="background-color:#056CF2; color: white;" (click)="update(file.id, email.value, file.shared)" (click)="modal.close('Close click')">Send</button>
                         </div>
                       </form>
                       </ng-template>
