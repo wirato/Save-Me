@@ -15,7 +15,7 @@ import { FilesharedComponent } from './fileshared/fileshared.component';
 
 
 const routes: Routes = [
-  { path: 'login', redirectTo: '/sign-in', pathMatch: 'full'},
+  { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
   { path: 'shared', component:FilesharedComponent,canActivate:[AuthGuard]},
   { path: 'sign-in', component: SignInComponent},
   { path: 'register-user', component: SignUpComponent},

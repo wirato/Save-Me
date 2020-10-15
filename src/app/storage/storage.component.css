@@ -81,10 +81,7 @@ label {
 }
 
 .bt-download {
-  color: #056CF2;
-  cursor: pointer;
-  text-decoration: none !important;
-  margin-left: 10px;
+  color: #ffffff;
 }
 
 .text-card {
@@ -174,7 +171,8 @@ input{
   background-color: #3e8e41;
 }
 
-card-body{
-  display: flex;
-  margin-left: 30px;
+.btn>a{
+  color: #f7f7f7;
+  text-decoration: none;
 }
+
