@@ -39,6 +39,8 @@ import { StorageComponent } from './storage/storage.component';
 import { FilesharedComponent } from './fileshared/fileshared.component';
 import { StoragesharedComponent } from './storageshared/storageshared.component';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -79,6 +81,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     AngularFirestoreModule, // wirato
     AngularFireAuthModule,
     NgbModule,
+    Ng2SearchPipeModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
