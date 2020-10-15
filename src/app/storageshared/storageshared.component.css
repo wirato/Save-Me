@@ -122,3 +122,11 @@ label {
 .card-body{
   padding:5px;
 }
+
+.card-img-top{
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-bottom: 20px;
+  width: 100px;
+  height: 100px;
+}
