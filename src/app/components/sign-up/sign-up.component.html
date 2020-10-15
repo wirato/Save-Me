@@ -13,15 +13,36 @@
                     <input type="email"  class="form-control" placeholder="Email Address" #userEmail required>
                   </div>
                   <br>
-                  <div class="formGroup">
-                    <input type="password"  class="form-control" placeholder="Password" #userPwd required>
-                  </div>
-                  <br>
-                  <div class="text-center">
-                    <button class="btn btn-lg btn-danger btn-block btn-login text-uppercase font-weight-bold mb-2" type="button" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">SING UP</button>
-                  </div>
-                  <br>
-                  <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="button" routerLink="/sign-in">Back to Login</button>
+                  <form [formGroup]="loginForm">
+                    <div class="formGroup">
+                      <input type="password"  formControlName="password" class="form-control" placeholder="Password" #userPwd required>
+                    </div>
+                    <div class="error-messages">
+                      <ng-container *ngFor="let error of error_messages.password">
+                        <div class="error-message" *ngIf="loginForm.get('password').hasError(error.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                          {{ error.message }}
+                        </div>
+                      </ng-container>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                      <label>Confirm Password*</label>
+                      <input class="form-control" formControlName="confirmpassword" type="password" />
+                    </div>
+                    <div class="error-messages">
+                      <ng-container *ngFor="let error of error_messages.confirmpassword">
+                        <div class="error-message" *ngIf="loginForm.get('confirmpassword').hasError(error.type) && (loginForm.get('confirmpassword').dirty || loginForm.get('confirmpassword').touched)">
+                          {{ error.message }}
+                        </div>
+                      </ng-container>
+                    </div>
+                    <br>
+                    <div class="text-center">
+                      <button class="btn btn-lg btn-danger btn-block btn-login text-uppercase font-weight-bold mb-2" type="button" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)"[disabled]="!loginForm.valid">SING UP</button>
+                    </div>
+                    <br>
+                    <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="button" routerLink="/sign-in">Back to Login</button>
+                  </form>
                 </form>
               </div>
             </div>

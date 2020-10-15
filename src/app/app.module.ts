@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -41,8 +41,10 @@ import { StoragesharedComponent } from './storageshared/storageshared.component'
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AutoFocusDirective } from './side-nav/auto-focus.directive';
+
+
 
 
 @NgModule({
@@ -62,6 +64,7 @@ import { AutoFocusDirective } from './side-nav/auto-focus.directive';
     AutoFocusDirective,
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
