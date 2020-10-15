@@ -1,4 +1,5 @@
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <div class="container-fluid">
     <div class="row no-gutter">
       <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
@@ -7,7 +8,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-9 col-lg-8 mx-auto">
-                <h1 class="login-heading mb-4">SING IN</h1>
+                <h1 class="login-heading mb-4 font-weight-bold">SIGN IN</h1>
                 <form>
                   <div class="formGroup">
                     <input type="email"  class="form-control" placeholder="Username" #userName required>
@@ -24,8 +25,9 @@
                   <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="button" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">Log in</button>
                   <br>
                   <div class="text-center">
-                    <button class="btn btn-lg btn-danger btn-block btn-login text-uppercase font-weight-bold mb-2" type="button" (click)="authService.GoogleAuth()">Log in with Google</button>
+                    <button class="btn btn-lg btn-danger btn-block btn-login text-uppercase font-weight-bold mb-2" type="button" (click)="authService.GoogleAuth()"><i class="fa fa-google mr-2"></i>Login with Google</button>
                   </div>
+                  <br>
                   <div class="text-center">
                     <a class="big" routerLink="/forgot-password">Forgot password?</a>
                     <br>
@@ -43,3 +45,4 @@
     </div>
   </div>
   
+

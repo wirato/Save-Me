@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation  } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Event } from '@angular/router';
 import { MatSort } from '@angular/material/sort';
@@ -14,11 +14,10 @@ import { AuthService } from "../shared/services/auth.service";
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-
 @Component({
-  selector: 'app-storage',
-  templateUrl: './storage.component.html',
-  styleUrls: ['./storage.component.css'],
+  selector: 'app-storageshared',
+  templateUrl: './storageshared.component.html',
+  styleUrls: ['./storageshared.component.css'],
   encapsulation: ViewEncapsulation.None,
   styles: [`
     .dark-modal .modal-content {
@@ -33,11 +32,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
     }
   `]
 })
+export class StoragesharedComponent implements OnInit {
 
-export class StorageComponent implements OnInit {
-
-  textSearch: string;
   t: boolean;
+  textSearch: string;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
@@ -51,21 +49,11 @@ export class StorageComponent implements OnInit {
     private firestore: AngularFirestore,
     public authService: AuthService,
     private modalService: NgbModal,
-  ) {
-
-  }
-  
-  openVerticallyCentered(content) {
-    this.modalService.open(content, { centered: true });
-  }
+  ) {}
 
 
-  openDelete(contentDelete) {
-    this.modalService.open(contentDelete, { centered: true });
-  }
-  
   ngOnInit(): void {
-    console.log(this.storage.storage.ref('files/Wtfu4SsSGeVgp4grtS8B14WZvLg1/save2 (1).mkv'));
+
     this.files$ = this.firestore.collection<File>('files').valueChanges(); // wirato;
 
     this.firestore.collection('files').snapshotChanges().subscribe(data => {
@@ -81,13 +69,21 @@ export class StorageComponent implements OnInit {
       })
     });
   }
+
+  openVerticallyCentered(content) {
+    this.modalService.open(content, { centered: true });
+  }
+
+  openDelete(contentDelete) {
+    this.modalService.open(contentDelete, { centered: true });
+  }
  
   onFileUpload(files: FileList, ID: string, shared: string) {
     const file = files[0];
     const path = `files/${ID}/${file.name}`;
     const ref = this.storage.ref(path);
     const task = this.storage.upload(path, file);
-    
+
     this.uploadPercentage$ = task.percentageChanges();
     task.snapshotChanges().pipe(
       finalize(() => {
@@ -133,5 +129,3 @@ export class StorageComponent implements OnInit {
     this.search(null);
   }
 }
-
-

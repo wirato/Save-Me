@@ -53,6 +53,9 @@ export class AuthService {
         up and returns promise */
         this.SendVerificationMail();
         this.SetUserData(result.user);
+        this.ngZone.run(() => {
+          this.router.navigate(['verify-email-address']);
+        })
       }).catch((error) => {
         window.alert(error.message)
       })

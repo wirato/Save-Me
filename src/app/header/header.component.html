@@ -5,32 +5,17 @@
   <span *ngIf="!mobileQueryMax">Save me</span>
   <span class="flex-fill"></span>
   <button mat-button [matMenuTriggerFor]="menu" *ngIf="authService.userData as user">
-    <img class="avatar"src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">
-    <span class="ml-3">{{user.displayName}}</span>
+    <img class="avatar"src="{{(user.photoURL) ? user.photoURL : 'https://www.flaticon.com/svg/static/icons/svg/14/14660.svg'}}" alt="{{user.displayName}}">
+    <span class="ml-3">{{user.email}}</span>
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item>
-      <mat-icon>settings</mat-icon>
+      <mat-icon routerLink="/setting">settings</mat-icon>
       <span routerLink="/setting">Setting</span>
     </button>
     <button mat-menu-item>
-      <mat-icon>exit_to_app</mat-icon>
+      <mat-icon (click)="authService.SignOut()">exit_to_app</mat-icon>
       <span (click)="authService.SignOut()">Logout</span>
     </button>
   </mat-menu>
 </mat-toolbar>
-
-<!-- <div class="row" *ngIf="authService.userData as user">
-  <div class="col-md-12">
-    <div class="media">
-      <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
-        alt="{{user.displayName}}">
-      <div class="media-body">
-        <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-        <p>User ID: <strong>{{user.uid}}</strong></p>
-        <p>Email: <strong>{{user.email}}</strong></p>
-        <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
-      </div>
-    </div>
-  </div>
-</div> -->
