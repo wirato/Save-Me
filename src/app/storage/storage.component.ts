@@ -63,7 +63,6 @@ export class StorageComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    console.log(this.storage.storage.ref('files/Wtfu4SsSGeVgp4grtS8B14WZvLg1/save2 (1).mkv'));
     this.files$ = this.firestore.collection<File>('files').valueChanges(); // wirato;
 
     this.firestore.collection('files').snapshotChanges().subscribe(data => {
