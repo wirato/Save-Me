@@ -43,6 +43,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AutoFocusDirective } from './side-nav/auto-focus.directive';
+import { AboutpageComponent } from './components/aboutpage/aboutpage.component';
 
 
 
@@ -62,6 +63,7 @@ import { AutoFocusDirective } from './side-nav/auto-focus.directive';
     FilesharedComponent,
     StoragesharedComponent,
     AutoFocusDirective,
+    AboutpageComponent,
   ],
   imports: [
     ReactiveFormsModule,

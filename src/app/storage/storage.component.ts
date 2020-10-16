@@ -79,7 +79,7 @@ export class StorageComponent implements OnInit {
     });
   }
  
-  onFileUpload(files: FileList, ID: string, shared: string) {
+  onFileUpload(files: FileList, ID: string) {
     const file = files[0];
     const path = `files/${ID}/${file.name}`;
     const ref = this.storage.ref(path);
@@ -89,7 +89,7 @@ export class StorageComponent implements OnInit {
     task.snapshotChanges().pipe(
       finalize(() => {
         ref.getDownloadURL().toPromise().then(url => {
-          const file_: File = { userID: ID , name: file.name, url, shared:[shared]}
+          const file_: File = { userID: ID , name: file.name, url, shared:[]}
           this.firestore.collection('files').add(file_);
         })
       })

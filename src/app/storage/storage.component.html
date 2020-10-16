@@ -13,7 +13,7 @@
         <label for="upload">Choose file</label>
       </div> -->
       <div *ngIf="authService.userData as user">
-        <input type="file" id="upload" (change)="onFileUpload($event.target.files,user.uid,user.email)" hidden/>
+        <input type="file" id="upload" (change)="onFileUpload($event.target.files,user.uid)" hidden/>
         <label for="upload">Upload file</label>
       </div>
         <!-- <label for="fileUpload" class="custom-button" *ngIf="authService.userData as user">
@@ -86,7 +86,7 @@
                         </ng-template>
 
                         
-                    
+
                       </div>
                     </div>
                   </div>

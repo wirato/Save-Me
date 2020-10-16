@@ -8,14 +8,14 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { AuthGuard } from "./shared/guard/auth.guard";
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
-import { AppComponent } from './app.component';
-import { StorageComponent } from './storage/storage.component';
+import { AboutpageComponent } from './components/aboutpage/aboutpage.component'
 import { FilesharedComponent } from './fileshared/fileshared.component';
 
 
 
+
 const routes: Routes = [
-  { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
+  { path: '', component: AboutpageComponent},
   { path: 'shared', component:FilesharedComponent,canActivate:[AuthGuard]},
   { path: 'sign-in', component: SignInComponent},
   { path: 'register-user', component: SignUpComponent},
